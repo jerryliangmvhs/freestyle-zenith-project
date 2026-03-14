@@ -11,7 +11,7 @@ camera.position.y = 1;
 camera.position.z = 2;
 camera.rotation.x = -1;
 camera.rotation.y = 0;
-scene.background = new THREE.Color('rgb(0, 0, 0)');
+scene.background = new THREE.Color('rgb(7, 16, 53)');
 
 const renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.shadowMap.enabled = true;
