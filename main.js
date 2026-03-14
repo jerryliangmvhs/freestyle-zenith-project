@@ -7,8 +7,8 @@ import { getProject, types } from '@theatre/core'
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 55, window.innerWidth / window.innerHeight, 0.1, 1000 );
 camera.position.x = 0;
-camera.position.y = 0.5;
-camera.position.z = 1;
+camera.position.y = 1;
+camera.position.z = 2;
 camera.rotation.x = -1;
 camera.rotation.y = 0;
 scene.background = new THREE.Color('rgb(0, 0, 0)');
