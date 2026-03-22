@@ -1,8 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import studio from '@theatre/studio'
-import { getProject, types } from '@theatre/core'
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 55, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -20,7 +18,7 @@ const controls = new OrbitControls( camera, renderer.domElement );
 const loader = new GLTFLoader();
 
 const directionalLight = new THREE.DirectionalLight( 'rgb(255, 233, 192)', 3 );
-const ambientLight = new THREE.AmbientLight('rgb(255, 209, 209)',0.2);
+const ambientLight = new THREE.AmbientLight('rgb(255, 209, 209)',1);
 
 directionalLight.castShadow = true;
 directionalLight.position.set(-7,18,16);
@@ -59,12 +57,14 @@ loader.load('models/HouseTestFile.glb', function ( gltf ) {
 
 function animate( time ) {
   renderer.render( scene, camera );
-  console.log("Camera Position X:", camera.position.x);
-console.log("Camera Position Y:", camera.position.y);
-console.log("Camera Position Z:", camera.position.z);
- console.log(
-        "Pitch (X):", camera.rotation.x,
-        "Yaw (Y):", camera.rotation.y
-    );
+  /*
+      console.log("Camera Position X:", camera.position.x);
+    console.log("Camera Position Y:", camera.position.y);
+    console.log("Camera Position Z:", camera.position.z);
+    console.log(
+            "Pitch (X):", camera.rotation.x,
+            "Yaw (Y):", camera.rotation.y
+        );
+        */
 }
 renderer.setAnimationLoop( animate );
