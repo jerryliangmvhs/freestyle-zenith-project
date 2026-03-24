@@ -15,16 +15,44 @@
     <meta property="twitter:image" content="http://zenith.jerryliangportfolio.com/favicon.png"/>
     <link rel="icon" type="image/x-icon" href="/assets/favicon-DstX19g1.png">
     <title>Jerry's House</title>
-  <script type="module" crossorigin src="/assets/index-DkjHewns.js"></script>
+  <script type="module" crossorigin src="/assets/index-Bqr3xLIo.js"></script>
 </head>
 <style>
-    body { margin: 0; }
+    @font-face{
+        font-family: debug-font;
+        src: url("/assets/Minecraft-Lz-C8nWS.otf");
+    }
+    body { margin: 0; position: relative;}
     .exhibit{
        width: 100% !important;
        height: 100% !important;
     }
+    p{
+        margin: 0;
+    }
+    .debug{
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white;
+        margin: 20px;
+        font-weight: 900;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        font-family: debug-font;
+        
+    }
 </style>
 <body>
+    <div class = "debug">
+        <p id = "cameraXInfo"></p>
+        <p id = "cameraYInfo"></p>
+        <p id = "cameraZInfo"></p>
+        <p id = "cameraPitchInfo"></p>
+        <p id = "cameraYawInfo"></p>
+        <p id = "cameraRollInfo"></p>
+    </div>
     <canvas id = "exhibit" class = "exhibit"></canvas>
 </body>
 </html>

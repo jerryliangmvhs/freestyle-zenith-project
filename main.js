@@ -42,6 +42,13 @@ scene.add(innerLightTest);
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setPixelRatio(window.devicePixelRatio);
 
+const cameraXInfo = document.getElementById("cameraXInfo");
+const cameraYInfo = document.getElementById("cameraYInfo");
+const cameraZInfo = document.getElementById("cameraZInfo");
+const cameraPitchInfo = document.getElementById("cameraPitchInfo");
+const cameraYawInfo = document.getElementById("cameraYawInfo");
+const cameraRollInfo = document.getElementById("cameraRollInfo");
+
 document.body.appendChild( renderer.domElement );
 
 /*
@@ -67,16 +74,41 @@ loader.load('models/HouseTestFile.glb', function ( gltf ) {
 
 } );
 
+function getCameraX(){
+  return "X: " + camera.position.x.toFixed(2);
+}
+function getCameraY(){
+  return "Y: " + camera.position.y.toFixed(2);
+}
+function getCameraZ(){
+  return "Z: " + camera.position.z.toFixed(2);
+}
+function getCameraPitch(){
+  return "Pitch: " + camera.rotation.x.toFixed(2);
+}
+function getCameraYaw(){
+  return "Yaw: " + camera.rotation.y.toFixed(2);
+}
+function getCameraRoll(){
+  return "Roll: " + camera.rotation.z.toFixed(2);
+}
+
 function animate( time ) {
   renderer.render( scene, camera );
+  console.log("Camera Position X:", camera.position.x);
+  console.log("Camera Position Y:", camera.position.y);
+  console.log("Camera Position Z:", camera.position.z);
+  console.log(
+      "Pitch (X):", camera.rotation.x,
+      "Yaw (Y):", camera.rotation.y
+  );
+  cameraXInfo.innerHTML = getCameraX();
+  cameraYInfo.innerHTML = getCameraY();
+  cameraZInfo.innerHTML = getCameraZ();
+  cameraPitchInfo.innerHTML = getCameraPitch();
+  cameraYawInfo.innerHTML = getCameraYaw();
+  cameraRollInfo.innerHTML = getCameraRoll();
   
-      console.log("Camera Position X:", camera.position.x);
-    console.log("Camera Position Y:", camera.position.y);
-    console.log("Camera Position Z:", camera.position.z);
-    console.log(
-            "Pitch (X):", camera.rotation.x,
-            "Yaw (Y):", camera.rotation.y
-        );
         
 }
 window.addEventListener("resize", () => {
