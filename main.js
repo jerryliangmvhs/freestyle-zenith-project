@@ -10,11 +10,21 @@ const sizes = {
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 45, sizes.width / sizes.height, 0.1, 1000 );
-camera.position.x = 0;
-camera.position.y = 11;
-camera.position.z = 23;
-camera.rotation.x = -1;
-camera.rotation.y = 0;
+if(sizes.width <768){
+  camera.position.x = 0;
+  camera.position.y = 33;
+  camera.position.z = 68;
+  camera.rotation.x = -1;
+  camera.rotation.y = 0;
+}
+else{
+  camera.position.x = 0;
+  camera.position.y = 13;
+  camera.position.z = 27;
+  camera.rotation.x = -1;
+  camera.rotation.y = 0;
+}
+
 scene.background = new THREE.Color('rgb(7, 16, 53)');
 
 const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
