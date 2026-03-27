@@ -12,16 +12,16 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 45, sizes.width / sizes.height, 0.1, 1000 );
 if(sizes.width <768){
   camera.position.x = 0;
-  camera.position.y = 42;
-  camera.position.z = 88;
+  camera.position.y = 20;
+  camera.position.z = 51.5;
 }
 else{
-  camera.position.x = -13;
-  camera.position.y = 14;
-  camera.position.z = 36;
+  camera.position.x = 0.3;
+  camera.position.y = 11.4;
+  camera.position.z = 19.2;
 }
 
-scene.background = new THREE.Color('rgb(235, 159, 96)');
+scene.background = new THREE.Color('rgb(248, 181, 163)');
 
 const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
 renderer.shadowMap.enabled = true;
@@ -30,7 +30,7 @@ const controls = new OrbitControls( camera, renderer.domElement );
 const loader = new GLTFLoader();
 
 const directionalLight = new THREE.DirectionalLight( 'rgb(255, 255, 255)', 3 );
-const innerLightTest = new THREE.DirectionalLight('rgb(255,255,255)',0.25);
+const innerLightTest = new THREE.DirectionalLight('rgb(255,255,255)',0.5);
 const ambientLight = new THREE.AmbientLight('rgb(255, 220, 193)',0.5);
 
 directionalLight.castShadow = true;
