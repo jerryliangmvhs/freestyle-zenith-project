@@ -36,6 +36,16 @@ const ambientLight = new THREE.AmbientLight('rgb(255, 220, 193)',0.5);
 
 directionalLight.castShadow = true;
 directionalLight.position.set(-7,18,16);
+directionalLight.shadow.camera.left = -200;
+directionalLight.shadow.camera.right = 200;
+directionalLight.shadow.camera.top = 200;
+directionalLight.shadow.camera.bottom = -200;
+directionalLight.shadow.camera.far = 1000;
+directionalLight.shadow.mapSize.width = 8192;
+directionalLight.shadow.mapSize.height = 8192;
+directionalLight.shadow.camera.updateProjectionMatrix();
+
+
 
 innerLightTest.castShadow = true;
 innerLightTest.position.set(-1,1,-1);
@@ -44,7 +54,7 @@ directionalLight.shadow.bias = -0.0001;
 innerLightTest.shadow.bias = -0.0001;
 scene.add(directionalLight);
 scene.add(ambientLight);
-scene.add(innerLightTest);
+//scene.add(innerLightTest);
 
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setPixelRatio(window.devicePixelRatio);
