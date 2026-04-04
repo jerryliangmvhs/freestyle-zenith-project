@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+     <meta property="og:site_name" content="small_J1337's Airplane" />
+    <meta property="og:title" content="small_J1337's Airplane" />
+    <meta property="twitter:title" content="small_J1337's Airplane" />
+    <meta property="og:url" content="http://zenith.jerryliangportfolio.com/" />
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Check out my 3D Practice Airplane Landing Page!" />
+    
+    <meta property="og:image" content="http://zenith.jerryliangportfolio.com/site-preview-airplane.jpg"/>
+    <meta property="og:image:secure_url" content="http://zenith.jerryliangportfolio.com/site-preview-airplane.jpg"/>
+    <meta property="twitter:image" content="http://zenith.jerryliangportfolio.com/site-preview-airplane.jpg"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Check out my 3D Practice Airplane Landing Page!">
+    <title>My Airplane</title>
+</head>
+<body style = "position: relative;">
+    <style>
+      @keyframes slideFromTop{
+        from{
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+      }
+      @keyframes fadeIn{
+        0%, 50%{
+          opacity: 0;
+        }
+      }
+      body { margin: 0; width: 100%; }
+      .title{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        width: 100vw;
+        animation: slideFromTop 3s ease;
+      }
+      .exhibit{
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .buttonWrapper{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        top: 85%;
+        animation: fadeIn 2s ease;
+      }
+      button{
+        margin: 0;
+        background: none;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        border: 5px solid white;
+        padding: 20px;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.25s ease;
+      }
+      button:hover{
+        background-color: white;
+        color: #90cbf0;
+      }
+      @media(max-width: 768px){
+        .title{
+            margin-top: 100px;
+        }
+      }
+    </style>
+    <div class = "title">
+        <h1 class = "name" style = "margin: 10px; text-align: center; font-size: 20px;">Jerry Liang</h1>
+        <p class = "description" style = "margin: 10px; text-align: center;">3D Landing Page, click on the plane and drag to test it!</p>
+    </div>
+    <div class = "buttonWrapper"><button onclick = "location.assign('https://freestyleacademy.rocks/~JerryL/about-me/')">Start Flying</button></div>
+  </head>
+<canvas id = "exhibit" class = "exhibit"></canvas>
+<script type="module" src="/airplane.js"></script>
+</body>
+</html>

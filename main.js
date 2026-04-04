@@ -78,7 +78,7 @@ const cube = new THREE.Mesh( geometry, material );
 scene.add(cube);
 */
 
-
+let mixer;
 
 loader.load('models/My House.glb', function ( gltf ) {
   const model = gltf.scene;
