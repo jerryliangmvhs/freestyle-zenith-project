@@ -140,7 +140,7 @@ document.addEventListener('keydown', (event) => {
   if(event.key === '0'){
     //spawn
     controls.target.set(0,0,0);
-    camera.position.set(0.15,8.89,17.32);
+     camera.position.set(0.13,8.39,17.21);
     if(sizes.width < 768){
       camera.position.set(0.22,23.66,48.73);
     }
