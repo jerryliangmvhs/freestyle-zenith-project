@@ -14,7 +14,7 @@ if(sizes.width <768){
   camera.position.set(0.22,23.66,48.73);
 }
 else{
-  camera.position.set(0.13,8.39,17.21);
+  camera.position.set(0.14,9.15,18.73);
 }
 
 scene.background = new THREE.Color('rgb(248, 181, 163)');
@@ -24,12 +24,13 @@ renderer.shadowMap.enabled = false;
 
 const controls = new OrbitControls( camera, renderer.domElement );
 controls.enablePan = false;
+controls.enableZoom = false;
 controls.update();
 const loader = new GLTFLoader();
 
-const directionalLight = new THREE.DirectionalLight( 'rgb(255, 255, 255)', 3 );
+const directionalLight = new THREE.DirectionalLight( 'rgb(255, 255, 255)', 1.2);
 const innerLightTest = new THREE.DirectionalLight('rgb(255,255,255)',0.5);
-const ambientLight = new THREE.AmbientLight('rgb(255, 220, 193)',0.5);
+const ambientLight = new THREE.AmbientLight('rgb(255, 255, 255)',1);
 
 directionalLight.castShadow = false;
 directionalLight.position.set(-7,18,16);
@@ -51,10 +52,10 @@ directionalLight.shadow.bias = -0.0001;
 innerLightTest.shadow.bias = -0.0001;
 scene.add(directionalLight);
 scene.add(ambientLight);
-//scene.add(innerLightTest);
 
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 const cameraXInfo = document.getElementById("cameraXInfo");
 const cameraYInfo = document.getElementById("cameraYInfo");
@@ -79,6 +80,7 @@ let mixer;
 
 loader.load('models/My House.glb', function ( gltf ) {
   const model = gltf.scene;
+  model.colorSpace = THREE.SRGBColorSpace;
   model.traverse((child) => {
         if (child.isMesh) {
             //child.castShadow = true;
@@ -140,7 +142,7 @@ document.addEventListener('keydown', (event) => {
   if(event.key === '0'){
     //spawn
     controls.target.set(0,0,0);
-     camera.position.set(0.13,8.39,17.21);
+    camera.position.set(0.14,9.15,18.73);
     if(sizes.width < 768){
       camera.position.set(0.22,23.66,48.73);
     }
