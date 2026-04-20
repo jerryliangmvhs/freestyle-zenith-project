@@ -11,10 +11,10 @@ const sizes = {
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 50, sizes.width / sizes.height, 0.1, 1000 );
 if(sizes.width <768){
-  camera.position.set(0.22,23.66,48.73);
+  camera.position.set(0,17.80,28.92);
 }
 else{
-  camera.position.set(0.14,9.15,18.73);
+  camera.position.set(0,9.15,18.73);
 }
 
 scene.background = new THREE.Color('rgb(248, 181, 163)');
@@ -144,7 +144,7 @@ document.addEventListener('keydown', (event) => {
     controls.target.set(0,0,0);
     camera.position.set(0.14,9.15,18.73);
     if(sizes.width < 768){
-      camera.position.set(0.22,23.66,48.73);
+      camera.position.set(0,17.80,28.92);
     }
     controls.update();
     camera.fov = 50;
