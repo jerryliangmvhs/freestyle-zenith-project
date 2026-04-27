@@ -30,7 +30,7 @@ const loader = new GLTFLoader();
 
 const directionalLight = new THREE.DirectionalLight( 'rgb(255, 255, 255)', 1.2);
 const innerLightTest = new THREE.DirectionalLight('rgb(255,255,255)',0.5);
-const ambientLight = new THREE.AmbientLight('rgb(255, 255, 255)',1);
+const ambientLight = new THREE.AmbientLight('rgb(255, 232, 201)',5);
 
 directionalLight.castShadow = false;
 directionalLight.position.set(-7,18,16);
@@ -50,7 +50,7 @@ innerLightTest.position.set(-1,1,-1);
 
 directionalLight.shadow.bias = -0.0001;
 innerLightTest.shadow.bias = -0.0001;
-scene.add(directionalLight);
+//scene.add(directionalLight);
 scene.add(ambientLight);
 
 renderer.setSize( window.innerWidth, window.innerHeight );
