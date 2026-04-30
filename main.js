@@ -4,6 +4,9 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 let location = 0;
+let mixer;
+const clock = new THREE.Clock();
+
 
 const canvas = document.getElementById("exhibit");
 const sizes = {
@@ -81,7 +84,6 @@ const cube = new THREE.Mesh( geometry, material );
 scene.add(cube);
 */
 
-let mixer;
 let model;
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath('draco/');
@@ -102,6 +104,7 @@ loader.load('models/My House.glb', function(gltf){
     });
     */
   scene.add(model);
+  mixer = new THREE.AnimationMixer(model);
   requestAnimationFrame(() => {
     console.log("model loaded");
     loadingText.innerHTML = "Welcome!";
@@ -110,10 +113,17 @@ loader.load('models/My House.glb', function(gltf){
     },500);
 
   });
+  gltf.animations.forEach((clip) => {
+    const action = mixer.clipAction(clip);
+    action.play();
+    });
 }, undefined, function ( error ) {
   console.error( error );
 
 } );
+
+  
+
 function getCameraX(){
   return "X: " + camera.position.x.toFixed(2);
 }
@@ -136,7 +146,11 @@ function getCameraTarget(){
   return "TargetX: " + controls.target.x.toFixed(2) + " TargetY: " + controls.target.y.toFixed(2) + " TargetZ: " + controls.target.z.toFixed(2);
 }
 function animate( time ) {
-  renderer.render( scene, camera );
+  renderer.setAnimationLoop((time) => {
+  const delta = clock.getDelta();
+  if (mixer) mixer.update(delta);
+  renderer.render(scene, camera);
+});
 }
 window.addEventListener("resize", () => {
   sizes.width = window.innerWidth;
